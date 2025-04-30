@@ -1,0 +1,27 @@
+
+---
+
+## ⚙️ `.gitignore` (Python + Jupyter)
+
+```gitignore
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv
+*.egg-info/
+*.env
+
+# Data files
+*.csv
+*.tsv
+*.xls
+*.xlsx
+
+# VSCode
+.vscode/
