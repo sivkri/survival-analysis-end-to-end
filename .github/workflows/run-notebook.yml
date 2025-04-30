@@ -1,0 +1,29 @@
+name: Run Survival Notebook
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas numpy matplotlib seaborn scikit-learn lifelines scikit-survival jupyter nbconvert
+
+    - name: Run notebook
+      run: |
+        jupyter nbconvert --to notebook --execute Survival_anlaysis_ML_and_DL.ipynb --output output.ipynb
